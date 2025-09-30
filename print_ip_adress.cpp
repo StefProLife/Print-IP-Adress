@@ -4,42 +4,95 @@
 #include <iostream>
 #include <type_traits>
 
+/**
+ * @file print_ip.cpp
+ * @brief This file contains functions for printing different data types as IP addresses or in a specific format.
+ *
+ * This implementation uses SFINAE and template specialization to provide different
+ * printing methods based on the input type. It includes support for integral types,
+ * strings, vectors, lists, and tuples.
+ */
 
+ /**
+  * @brief Global constant for the separator used in IP address formatting.
+  */
 const static std::string strSeparator = ".";
+
+
+/**
+ * @brief Global constant for an empty string, used to avoid printing a separator at the end.
+ */
 const static std::string strEmpty = "";
 
 
+/**
+ * @brief Type trait to check if a type is std::string.
+ * @tparam T The type to check.
+ */
 template <typename T>
 struct is_string : std::is_same<std::string, T> {};
 
 
+/**
+ * @brief Type trait to check if a type is std::vector.
+ * @tparam T The type to check.
+ */
 template <typename T>
 struct is_vector : std::false_type {};
 
+/**
+ * @brief Partial specialization of is_vector for std::vector.
+ * @tparam T The element type of the vector.
+ */
 template <typename T>
 struct is_vector<std::vector<T>> : std::true_type {};
 
 
+/**
+ * @brief Type trait to check if a type is std::list.
+ * @tparam T The type to check.
+ */
 template <typename T>
 struct is_list : std::false_type {};
 
+/**
+ * @brief Partial specialization of is_list for std::list.
+ * @tparam T The element type of the list.
+ */
 template <typename T>
 struct is_list<std::list<T>> : std::true_type {};
 
-
-
+/**
+ * @brief Type trait to check if a type is std::tuple.
+ * @tparam T The type to check.
+ */
 template <typename T>
 struct is_tuple : std::false_type {};
 
+/**
+ * @brief Partial specialization of is_tuple for std::tuple.
+ * @tparam Args The types of the elements in the tuple.
+ */
 template <typename... Args>
 struct is_tuple<std::tuple<Args...>> : std::true_type {};
 
 
+/**
+ * @brief Helper function to print elements of a tuple using index sequence and fold expression.
+ * @tparam TupleType The type of the tuple.
+ * @tparam I        The index sequence.
+ * @param t         The tuple to print.
+ */
 template <typename TupleType, size_t... I>
 void printTupleElements(const TupleType& t, std::index_sequence<I...>) {
     ((std::cout << std::get<I>(t) << (I != sizeof...(I) - 1 ? strSeparator : strEmpty)), ...);
 }
 
+/**
+ * @brief Prints a tuple with elements separated by a dot.
+ * @tparam Args The types of the elements in the tuple.
+ * @param t The tuple to print.
+ */
 template <typename... Args>
 void print_ip(const std::tuple<Args...>& type) {
     printTupleElements(type, std::make_index_sequence<sizeof...(Args)>{});
@@ -47,6 +100,11 @@ void print_ip(const std::tuple<Args...>& type) {
 }
 
 
+/**
+ * @brief Prints an integral value as an IP address (byte by byte).
+ * @tparam T The integral type.
+ * @param value The value to print.
+ */
 template <typename T>
 typename std::enable_if<std::is_integral<T>::value, void>::type
 print_ip(T value)
@@ -66,6 +124,11 @@ print_ip(T value)
     std::cout << std::endl;
 }
 
+/**
+ * @brief Prints a string.
+ * @tparam T The string type.
+ * @param value The string to print.
+ */
 template <typename T>
 typename std::enable_if<is_string<T>::value, void>::type
 print_ip(T value)
@@ -73,6 +136,11 @@ print_ip(T value)
     std::cout << value << std::endl;
 }
 
+/**
+ * @brief Prints a vector with elements separated by a dot.
+ * @tparam T The vector type.
+ * @param container The vector to print.
+ */
 template <typename T>
 typename std::enable_if<is_vector<T>::value, void>::type
 print_ip(const T& container)
@@ -87,6 +155,11 @@ print_ip(const T& container)
     std::cout << std::endl;
 }
 
+/**
+ * @brief Prints a list with elements separated by a dot.
+ * @tparam T The list type.
+ * @param container The list to print.
+ */
 template <typename T>
 typename std::enable_if<is_list<T>::value, void>::type
 print_ip(const T& container)
@@ -103,6 +176,11 @@ print_ip(const T& container)
     std::cout << std::endl;
 }
 
+/**
+ * @brief Prints a tuple with elements separated by a dot.
+ * @tparam T The tuple type.
+ * @param container The tuple to print.
+ */
 template <typename T>
 typename std::enable_if<is_tuple<T>::value, void>::type
 print_ip(const T& container)
