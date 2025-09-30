@@ -16,3 +16,6 @@ build/
 bld/
 ipch/
 obj/
+
+# Doxygen
+docs/
