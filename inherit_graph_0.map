@@ -1,0 +1,19 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,172,110,197"/>
+<area shape="rect" id="Node000001" href="$structis__list_3_01std_1_1list_3_01T_01_4_01_4.html" title="Partial specialization of is_list for std::list." alt="" coords="177,5,284,46"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="75,158,122,97,156,57,175,44,178,49,159,61,126,101,80,161"/>
+<area shape="rect" id="Node000003" href="$structis__tuple_3_01std_1_1tuple_3_01Args_8_8_8_01_4_01_4.html" title="Partial specialization of is_tuple for std::tuple." alt="" coords="166,71,295,111"/>
+<area shape="poly" id="edge2_Node000000_Node000003" title=" " alt="" coords="91,161,156,122,181,110,183,114,159,127,93,165"/>
+<area shape="rect" id="Node000004" href="$structis__vector_3_01std_1_1vector_3_01T_01_4_01_4.html" title="Partial specialization of is_vector for std::vector." alt="" coords="158,136,303,177"/>
+<area shape="poly" id="edge3_Node000000_Node000004" title=" " alt="" coords="125,171,157,166,158,171,125,176"/>
+<area shape="rect" id="Node000005" href="$structis__list.html" title="Type trait to check if a type is std::list." alt="" coords="188,201,273,226"/>
+<area shape="poly" id="edge4_Node000000_Node000005" title=" " alt="" coords="125,193,188,204,187,209,124,198"/>
+<area shape="rect" id="Node000006" href="$structis__tuple.html" title="Type trait to check if a type is std::tuple." alt="" coords="182,250,278,276"/>
+<area shape="poly" id="edge5_Node000000_Node000006" title=" " alt="" coords="95,203,159,237,186,247,184,252,157,241,92,208"/>
+<area shape="rect" id="Node000007" href="$structis__vector.html" title="Type trait to check if a type is std::vector." alt="" coords="178,300,282,325"/>
+<area shape="poly" id="edge6_Node000000_Node000007" title=" " alt="" coords="79,208,114,248,159,286,180,297,178,301,156,291,110,252,75,211"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="8,78,107,104"/>
+<area shape="poly" id="edge7_Node000002_Node000001" title=" " alt="" coords="107,70,175,43,177,48,109,75"/>
+<area shape="poly" id="edge8_Node000002_Node000003" title=" " alt="" coords="122,88,165,88,165,94,122,94"/>
+<area shape="poly" id="edge9_Node000002_Node000004" title=" " alt="" coords="108,107,175,133,173,138,107,112"/>
+</map>
