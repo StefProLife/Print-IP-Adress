@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.12)
 set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
 set(PROJECT_VESRION 0.0.${PATCH_VERSION})
 
-project(print_ip VERSION ${PROJECT_VESRION})
+project(print_ip_adress VERSION ${PROJECT_VESRION})
 
 
 add_executable(print_ip_adress_cli print_ip_adress.cpp)
@@ -13,11 +13,11 @@ set_target_properties(print_ip_adress_cli PROPERTIES
     CXX_STANDARD_REQUIRED ON
 )
 
-target_include_directories(print_ip
+target_include_directories(print_ip_adress_cli
     PRIVATE "${CMAKE_BINARY_DIR}"
 )
 
-install(TARGETS ip_filter LIBRARY DESTINATION bin)
+install(TARGETS print_ip_adress_cli RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
