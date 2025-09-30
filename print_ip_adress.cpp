@@ -2,6 +2,7 @@
 #include <tuple>
 #include <vector>
 #include <iostream>
+#include <cstdint>
 #include <type_traits>
 
 /**
